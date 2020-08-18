@@ -1,0 +1,34 @@
+<hello name="{{ name }}"></hello>
+<p>
+  Start editing to see some magic happen :)
+</p>
+
+<!-- ngx-mask -->
+<label for="">cpf:</label><input type="text" [mask]="cpfMask" [dropSpecialCharacters]="false" [showMaskTyped]="true"
+[(ngModel)]="myModel0" />{{myModel0}}
+<br><br>
+
+<!-- text-mask nao remove mascara do model -->
+<input [textMask]="{mask: cpfMask2, guide: false}" [(ngModel)]="myModel2" (ngModelChange)="telCpfChange()" type="text"/>{{myModel2}}
+
+<br><br>
+<label for="">telefone:</label><input [textMask]="{mask: telMask, guide: true}" [(ngModel)]="myModel1" (ngModelChange)="telMaskChange($event)" type="text" (keypress)="keyPress($event.key)"/>{{myModel1}}
+<br>
+
+<br>
+<input type="tel" class="form-control" name="telefone" [(ngModel)]="telefone" 
+[mask]="telefoneMask"  
+(keypress)="keyPress2($event.key)" (keydown)="setMask($event)"
+[dropSpecialCharacters]="true" [showMaskTyped]="true"
+/>{{telefone}}
+
+<br><br>
+porcentagem: <input type="text" suffix="%" mask="percent" />
+
+<!-- inputmask -->
+<br><br>
+telefone: <input type="text" #telInput [(ngModel)]="inputmasktelefone" autocomplete="off"/>{{inputmasktelefone}}
+
+<br><br>
+moeda: <input type="text" #currencyInput [(ngModel)]="moeda" />
+{{moeda}}
